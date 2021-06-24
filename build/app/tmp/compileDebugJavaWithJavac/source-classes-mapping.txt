@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/thportal_new/BuildConfig.java
+ com.example.thportal_new.BuildConfig
