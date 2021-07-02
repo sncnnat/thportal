@@ -1,10 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:thportal_new/firstMainList.dart';
+import 'package:thportal_new/menuList.dart';
+import 'package:thportal_new/personalInfoList.dart';
 
-void main() => runApp(MyApp());
+
+void main() {
+  runApp(new MaterialApp(
+      home: MyApp(),
+
+      routes: <String, WidgetBuilder>
+      {
+        "/menuList": (BuildContext context) => new MenuList(),
+        "/firstMainList": (BuildContext context) => new firstMainList(),
+        "/personalInfoList": (BuildContext context) => new personalInfoList(),
+      }
+  ));
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +47,25 @@ class MyApp extends StatelessWidget {
                   widget = Container(
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(20.0),
                       color: Color.fromRGBO(53, 58, 120, 0.3),
                     ),
-
                     child: InkWell(
-                      child: Container(child:
-                          Text('ตรวจสอบข้อมูลตนเอง',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),)
-                      )
-                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MenuList()),
+                        );
+                      },
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(FontAwesomeIcons.idBadge, size: 44,color: Color.fromRGBO(0, 0, 0, 0.7)),
+                        Text('ตรวจสอบข้อมูลตนเอง',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)), textAlign: TextAlign.center)
+                      ],
+                    )),
                   );
                   break;
                 case 1:
@@ -51,10 +76,14 @@ class MyApp extends StatelessWidget {
                       color: Color.fromRGBO(53, 58, 120, 0.3),
                     ),
                     child: InkWell(
-                      borderRadius: BorderRadius.circular(20.0) ,
-                      child: (const Text('ระบบลงทะเบียน\nขอรับบริการล่วงหน้า',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),)
-                      ),
-                    ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.app_registration, size: 44,color: Color.fromRGBO(0, 0, 0, 0.7)),
+                            Text('ระบบลงทะเบียน\nขอรับบริการล่วงหน้า',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),textAlign: TextAlign.center)
+                          ],
+                        )),
                   );
                   break;
                 case 2:
@@ -65,10 +94,14 @@ class MyApp extends StatelessWidget {
                       color: Color.fromRGBO(53, 58, 120, 0.3),
                     ),
                     child: InkWell(
-                      child: (
-                          const Text('ตรวจสอบผู้มีสิทธิ\nเลือกตั้งท้องถิ่น',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),)
-                      ),
-                    ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(FontAwesomeIcons.userCheck, size: 44,color: Color.fromRGBO(0, 0, 0, 0.7)),
+                          Text('ตรวจสอบผู้มีสิทธิ\nเลือกตั้งท้องถิ่น',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),textAlign: TextAlign.center)
+                        ],
+                      )),
                   );
                   break;
                 case 3:
@@ -79,10 +112,14 @@ class MyApp extends StatelessWidget {
                       color: Color.fromRGBO(53, 58, 120, 0.3),
                     ),
                     child: InkWell(
-                      child: (
-                          const Text('เเจ้งเหตุจำเป็น\nไม่ไปใช้สิทธิเลือกตั้ง',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),)
-                      ),
-                    ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(FontAwesomeIcons.edit, size: 44,color: Color.fromRGBO(0, 0, 0, 0.7)),
+                            Text('เเจ้งเหตุจำเป็น\nไม่ไปใช้สิทธิเลือกตั้ง',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),textAlign: TextAlign.center)
+                          ],
+                        )),
                   );
                   break;
                 case 4:
@@ -93,10 +130,14 @@ class MyApp extends StatelessWidget {
                       color: Color.fromRGBO(53, 58, 120, 0.3),
                     ),
                     child: InkWell(
-                      child: (
-                          const Text('ตรวจสอบรายละเอียดผู้ไม่ไปใช้สิทธิเเละผู้เเจ้งเหตุจำเป็นไม่ไปใช้สิทธิเลือกตั้ง',style: TextStyle(fontSize: 13, color: Color.fromRGBO(0, 0, 0, 0.7)),)
-                      ),
-                    ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(FontAwesomeIcons.fileAlt, size: 44,color: Color.fromRGBO(0, 0, 0, 0.7),),
+                            Text('ตรวจสอบรายละเอียดผู้ไม่ไปใช้สิทธิเเละผู้เเจ้งเหตุจำเป็นไม่ไปใช้สิทธิเลือกตั้ง',style: TextStyle(fontSize: 13, color: Color.fromRGBO(0, 0, 0, 0.7)),textAlign: TextAlign.center)
+                          ],
+                        )),
                   );
                   break;
                 case 5:
@@ -107,10 +148,14 @@ class MyApp extends StatelessWidget {
                       color: Color.fromRGBO(53, 58, 120, 0.3),
                     ),
                     child: InkWell(
-                      child: (
-                          const Text('ระบบการขอย้าย\nทะเบียนบ้านปลายทาง',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),)
-                      ),
-                    ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(FontAwesomeIcons.addressCard, size: 44,color: Color.fromRGBO(0, 0, 0, 0.7)),
+                            Text('ระบบการขอย้าย\nทะเบียนบ้านปลายทาง',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),textAlign: TextAlign.center)
+                          ],
+                        )),
                   );
                   break;
                 case 6:
@@ -121,10 +166,14 @@ class MyApp extends StatelessWidget {
                       color: Color.fromRGBO(53, 58, 120, 0.3),
                     ),
                     child: InkWell(
-                      child: (
-                          const Text('การมอบอำนาจ',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),)
-                      ),
-                    ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(Icons.add_to_home_screen, size: 44,color: Color.fromRGBO(0, 0, 0, 0.7)),
+                            Text('การมอบอำนาจ',style: TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 0.7)),textAlign: TextAlign.center)
+                          ],
+                        )),
                   );
                   break;
 
@@ -136,17 +185,6 @@ class MyApp extends StatelessWidget {
               }
               return widget;
             },
-             //color: Color.fromRGBO(53, 58, 120, 0.3),
-            // child: Container(
-            //   child: Center(
-            //     child: Text(
-            //       'ตรวจสอบข้อมูลตนเอง',
-            //       style: TextStyle(
-            //         color: Color.fromRGBO(0, 0, 0, 0.7),
-            //       ),
-            //     ),
-            //   ),
-            //),
           ),
         ),
       ),
