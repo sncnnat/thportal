@@ -2,41 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:thportal_new/models/userInfo.dart';
+
 
 class PersonalInfoCard extends StatelessWidget {
-  final String titleName;
-  final String firstName;
-  final String middleName;
-  final String lastName;
-  final String age;
-  final String statusOfPersonDesc;
-  final String genderDesc;
-  final String nationalityDesc;
-  final String ownerStatusDesc;
-  final String fatherName;
-  final String fatherPersonalID;
-  final String fatherNationalityDesc;
-  final String motherName;
-  final String motherPersonaID;
-  final String motherNationalityDesc;
+  UserInfo user;
 
   PersonalInfoCard({
-    required this.titleName,
-    required this.firstName,
-    required this.middleName,
-    required this.lastName,
-    required this.age,
-    required this.statusOfPersonDesc,
-    required this.genderDesc,
-    required this.nationalityDesc,
-    required this.ownerStatusDesc,
-    required this.fatherName,
-    required this.fatherPersonalID,
-    required this.fatherNationalityDesc,
-    required this.motherName,
-    required this.motherPersonaID,
-    required this.motherNationalityDesc,
+  required this.user
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +71,7 @@ class PersonalInfoCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 30, 4, 4),
                       child: Text(
-                        '$firstName $middleName $lastName',
+                        '${user.titleName} ${user.firstName} ${user.middleName} ${user.lastName}',
                         style: TextStyle(
                             fontSize: 14, color: Color.fromRGBO(0, 0, 0, 1.0)),
                       ),
@@ -115,7 +90,7 @@ class PersonalInfoCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(90, 20, 4, 4),
                       child: Text(
-                        '$age',
+                        '${user.age}',
                         style: TextStyle(
                             fontSize: 14, color: Color.fromRGBO(0, 0, 0, 1.0)),
                       ),
@@ -134,7 +109,7 @@ class PersonalInfoCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(12, 20, 4, 4),
                       child: Text(
-                        '$statusOfPersonDesc',
+                        '${user.statusOfPersonDesc}',
                         style: TextStyle(
                             fontSize: 14, color: Color.fromRGBO(0, 0, 0, 1.0)),
                       ),
@@ -181,7 +156,7 @@ class PersonalInfoCard extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 15),
                               child: Icon(FontAwesomeIcons.venusMars),
                             ),
-                            Text('$genderDesc',
+                            Text('${user.genderDesc}',
                                 style: TextStyle(
                                     fontSize: 10,
                                     color: Color.fromRGBO(0, 0, 0, 1.0)))
@@ -202,7 +177,7 @@ class PersonalInfoCard extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 15),
                               child: Icon(FontAwesomeIcons.passport),
                             ),
-                            Text('$nationalityDesc',
+                            Text('${user.nationalityDesc}',
                                 style: TextStyle(
                                     fontSize: 10,
                                     color: Color.fromRGBO(0, 0, 0, 1.0)))
@@ -256,7 +231,7 @@ class PersonalInfoCard extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.fromLTRB(125, 20, 4, 4),
                       child: Text(
-                        '$ownerStatusDesc',
+                        '${user.ownerStatusDesc}',
                         style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1.0)),
                       ),
                     ),
@@ -287,7 +262,7 @@ class PersonalInfoCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(25, 20, 4, 4),
                       child: Text(
-                        '$fatherName',
+                        '${user.fatherName}',
                         style: TextStyle(
                             fontSize: 14, color: Color.fromRGBO(0, 0, 0, 1.0)),
                       ),
@@ -313,7 +288,7 @@ class PersonalInfoCard extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 20),
                               child: Icon(FontAwesomeIcons.idCard),
                             ),
-                            Text('$fatherPersonalID',
+                            Text('${user.fatherPersonalID}',
                                 style: TextStyle(
                                     fontSize: 10,
                                     color: Color.fromRGBO(0, 0, 0, 1.0)))
@@ -334,7 +309,7 @@ class PersonalInfoCard extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 15),
                               child: Icon(FontAwesomeIcons.passport),
                             ),
-                            Text('$fatherNationalityDesc',
+                            Text('${user.fatherNationalityDesc}',
                                 style: TextStyle(
                                     fontSize: 10,
                                     color: Color.fromRGBO(0, 0, 0, 1.0)))
@@ -369,7 +344,7 @@ class PersonalInfoCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 20, 4, 4),
                       child: Text(
-                        '$motherName',
+                        '${user.motherName}',
                         style: TextStyle(
                             fontSize: 14, color: Color.fromRGBO(0, 0, 0, 1.0)),
                       ),
@@ -395,7 +370,7 @@ class PersonalInfoCard extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 20),
                               child: Icon(FontAwesomeIcons.idCard),
                             ),
-                            Text('$motherPersonaID',
+                            Text('${user.motherPersonaID}',
                                 style: TextStyle(
                                     fontSize: 10,
                                     color: Color.fromRGBO(0, 0, 0, 1.0)))
@@ -416,7 +391,7 @@ class PersonalInfoCard extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 15),
                               child: Icon(FontAwesomeIcons.passport),
                             ),
-                            Text('$motherNationalityDesc',
+                            Text('${user.motherNationalityDesc}',
                                 style: TextStyle(
                                     fontSize: 10,
                                     color: Color.fromRGBO(0, 0, 0, 1.0)))
