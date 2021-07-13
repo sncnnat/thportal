@@ -35,7 +35,7 @@ class HomeListScreen extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('THPORTAL',
+        title: Text('หน้าหลัก',
             style: TextStyle(fontSize: 18.0, color: Colors.white)),
       ),
       body: Padding(

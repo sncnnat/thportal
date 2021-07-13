@@ -14,7 +14,7 @@ class BirthScreen extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('THPORTAL',
+        title: Text('การเเจ้งเกิด',
             style: TextStyle(fontSize: 18.0, color: Colors.white)),
       ),
       body: Padding(

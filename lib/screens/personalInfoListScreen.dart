@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:thportal_new/screens/%E0%B8%BAborderPassScreen.dart';
 import 'package:thportal_new/screens/birthScreen.dart';
+import 'package:thportal_new/screens/changeNameScreen.dart';
+import 'package:thportal_new/screens/identityCardInfoScreen.dart';
+import 'package:thportal_new/screens/marriageScreen.dart';
+import 'package:thportal_new/screens/moveInScreen.dart';
+import 'package:thportal_new/screens/passportScreen.dart';
+
+import 'divorceScreen.dart';
 
 class personalInfoList extends StatelessWidget {
   @override
@@ -14,7 +22,7 @@ class personalInfoList extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('THPORTAL',
+        title: Text('ข้อมูลส่วนบุคคล',
             style: TextStyle(fontSize: 18.0, color: Colors.white)),
       ),
       body: Padding(
@@ -81,12 +89,19 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MarriageScreen()),
+                      );
+                    },
                   child: Container(
                     child: Row(
                       children: [
                         Container(
                           padding: EdgeInsets.fromLTRB(23, 10, 20, 10),
-                          child: Text('ประวัติการจะทะเบียนสมรส',
+                          child: Text('ประวัติการจดทะเบียนสมรส',
                               style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
@@ -113,6 +128,13 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DivorceScreen()),
+                    );
+                  },
                   child: Container(
                     child: Row(
                       children: [
@@ -145,6 +167,13 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => IdentityCardInfoScreen()),
+                    );
+                  },
                   child: Container(
                     child: Row(
                       children: [
@@ -177,6 +206,13 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PassportScreen()),
+                    );
+                  },
                   child: Container(
                     child: Row(
                       children: [
@@ -209,6 +245,13 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ChangeNameScreen()),
+                    );
+                  },
                   child: Container(
                     child: Row(
                       children: [
@@ -241,6 +284,13 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BorderPassScreen()),
+                    );
+                  },
                   child: Container(
                     child: Row(
                       children: [
@@ -273,6 +323,13 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MoveInScreen()),
+                    );
+                  },
                   child: Container(
                     child: Row(
                       children: [
@@ -342,7 +399,7 @@ class personalInfoList extends StatelessWidget {
                       children: [
                         Container(
                           padding: EdgeInsets.fromLTRB(23, 10, 20, 10),
-                          child: Text('ข้อมูลใบอณุญาตขับรถ',
+                          child: Text('ข้อมูลใบอนุญาตขับรถ',
                               style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
