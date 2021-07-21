@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:thportal_new/widgets/moveIn.dart';
-import 'package:thportal_new/widgets/numberMoveIn.dart';
 
 class MoveInScreen extends StatelessWidget {
   const MoveInScreen({Key? key}) : super(key: key);
@@ -21,7 +20,7 @@ class MoveInScreen extends StatelessWidget {
             style: TextStyle(fontSize: 16.0, color: Colors.white)),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 27, ),
+        padding: const EdgeInsets.only(top: 20 ),
         child: Container(
           child: SingleChildScrollView(
             child: MoveIn(

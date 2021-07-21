@@ -405,7 +405,7 @@ class IdentityCard extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.fromLTRB(40, 30, 4, 4),
                           child: Icon(
-                            FontAwesomeIcons.fileAlt,
+                            FontAwesomeIcons.infoCircle,
                             size: 40,
                           ),
                         ),

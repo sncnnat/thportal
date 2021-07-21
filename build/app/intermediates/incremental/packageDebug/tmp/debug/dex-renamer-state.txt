@@ -1,4 +1,4 @@
-#Mon Jul 12 11:22:38 ICT 2021
+#Mon Jul 19 07:56:54 ICT 2021
 base.0=/Users/nat/AndroidStudioProjects/thportal_new/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

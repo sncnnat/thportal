@@ -8,6 +8,8 @@ import 'package:thportal_new/screens/moveInScreen.dart';
 import 'package:thportal_new/screens/passportScreen.dart';
 
 import 'divorceScreen.dart';
+import 'drivingLicenseScreen.dart';
+import 'moveOutScreen.dart';
 
 class personalInfoList extends StatelessWidget {
   @override
@@ -362,6 +364,13 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MoveOutScreen()),
+                    );
+                  },
                   child: Container(
                     child: Row(
                       children: [
@@ -394,6 +403,13 @@ class personalInfoList extends StatelessWidget {
                   ],
                 ),
                 child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DrivingLicenseScreen()),
+                    );
+                  },
                   child: Container(
                     child: Row(
                       children: [

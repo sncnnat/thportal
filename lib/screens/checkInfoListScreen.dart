@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:thportal_new/screens/assetScreen.dart';
+import 'package:thportal_new/screens/careerScreen.dart';
+import 'package:thportal_new/screens/educationTalentScreen.dart';
 import 'package:thportal_new/screens/homeListScreen.dart';
 import 'package:thportal_new/screens/personalInfoListScreen.dart';
+import 'package:thportal_new/screens/securityDatabaseScreen.dart';
+import 'package:thportal_new/screens/welfareScreen.dart';
 
 class MenuList extends StatelessWidget {
   @override
@@ -126,6 +131,13 @@ class MenuList extends StatelessWidget {
                           ),
                         ]),
                     child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => educationTalentScreen()),
+                        );
+                      },
                       child: Container(
                         child: Row(
                           children: [
@@ -160,6 +172,13 @@ class MenuList extends StatelessWidget {
                           ),
                         ]),
                     child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WelfareScreen()),
+                        );
+                      },
                       child: Container(
                         child: Row(
                           children: [
@@ -194,6 +213,13 @@ class MenuList extends StatelessWidget {
                           ),
                         ]),
                     child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CareerScreen()),
+                        );
+                      },
                       child: Container(
                         child: Row(
                           children: [
@@ -228,6 +254,13 @@ class MenuList extends StatelessWidget {
                           ),
                         ]),
                     child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>    SecurityDatabaseScreen()),
+                          );
+                        },
                       child: Container(
                         child: Row(
                           children: [
@@ -262,6 +295,13 @@ class MenuList extends StatelessWidget {
                           ),
                         ]),
                     child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>  AssetScreen()),
+                        );
+                      },
                       child: Container(
                         child: Row(
                           children: [
