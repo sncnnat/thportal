@@ -25,7 +25,7 @@ class MoveOutScreen extends StatelessWidget {
         padding: const EdgeInsets.only(top: 20, ),
         child: Container(
           child: SingleChildScrollView(
-            child: MoveOut(
+            child: MoveOutCard(
 
             ),
           ),

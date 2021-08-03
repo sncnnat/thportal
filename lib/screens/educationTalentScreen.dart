@@ -1,17 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:thportal_new/screens/%E0%B8%BAborderPassScreen.dart';
-import 'package:thportal_new/screens/birthScreen.dart';
-import 'package:thportal_new/screens/changeNameScreen.dart';
 import 'package:thportal_new/screens/diplomaScreen.dart';
-import 'package:thportal_new/screens/identityCardInfoScreen.dart';
-import 'package:thportal_new/screens/marriageScreen.dart';
-import 'package:thportal_new/screens/moveInScreen.dart';
 import 'package:thportal_new/screens/passTestDataSection.dart';
-import 'package:thportal_new/screens/passportScreen.dart';
-
-import 'divorceScreen.dart';
-import 'drivingLicenseScreen.dart';
-import 'moveOutScreen.dart';
 
 class educationTalentScreen extends StatelessWidget {
   @override

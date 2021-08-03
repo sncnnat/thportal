@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:thportal_new/widgets/insusrerDataCard.dart';
 import 'package:thportal_new/widgets/landOwnerCard.dart';
 
 class LandOwnerScreen extends StatelessWidget {

@@ -28,7 +28,7 @@ class PassportScreen extends StatelessWidget {
             style: TextStyle(fontSize: 16.0, color: Colors.white)),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 27, left: 20, right: 20),
+        padding: const EdgeInsets.only(top: 27, left: 30, right: 25),
         child: Container(
           child: SingleChildScrollView(
             child: PassportCard(

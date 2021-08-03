@@ -2,76 +2,46 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:thportal_new/widgets/numberMoveIn.dart';
+import 'package:intl/intl.dart';
+import 'package:thportal_new/models/moveOutInfo.dart';
+import 'package:thportal_new/widgets/dropDownMoveOut.dart';
 
-class NumberMoveOut extends StatelessWidget {
+
+class MoveOutCard extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: DropDownDemo(
-      ),
-    );
-  }
-}
-class DropDownDemo extends StatefulWidget {
-  @override
-  _DropDownDemoState createState() => _DropDownDemoState();
+  _MoveOutCardState createState() => _MoveOutCardState();
 }
 
 
-class _DropDownDemoState extends State<DropDownDemo> {
-  var _chosenValue;
+class _MoveOutCardState extends State<MoveOutCard> {
+  var _currentPetition = "375/2556";
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: ShapeDecoration(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-          )
-      ),
-      padding: const EdgeInsets.all(10.0),
-      child: DropdownButton<String>(
-        value: _chosenValue,
-        //elevation: 5,
-        style: TextStyle(color: Colors.black),
-
-        items: <String>[
-          '12414/2553',
-          '2896/2543'
-
-        ].map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-        hint: Text(
-          "เลขที่ใบคำร้องการย้ายออก",
-          style: TextStyle(
-            color: Color.fromRGBO(0, 0, 0, 0.5),
-            fontSize: 12,
-          ),
-        ),
-        onChanged: (value) async {
-          setState(() {
-            _chosenValue = value;
-          });
-        },
-      ),
-    );
-  }
-}
-
-class MoveOut extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+    final moveOutInfo = moveOutList
+        .firstWhere((license) => license.petitionNo.contains(_currentPetition));
+    final moveDate =
+    DateFormat("dd/MM/yyyy").format(DateTime.parse(moveOutInfo.moveDate));
     return Column(
       children: [
-        NumberMoveOut(),
+        DropDownMoveOut(
+            currentValue: _currentPetition,
+            items: [
+              "375/2556",
+              "2055/2555",
+              "141/2553",
+              "462/2549",
+              "1363/2549",
+              "40130/642541",
+            ],
+            onChangeHandler: (value) => {
+              setState(() {
+                _currentPetition = value as String;
+              })
+            }),
         Container(
           width: 500,
-          height: 230,
+          height: 210,
           decoration: BoxDecoration(
             color: Color.fromRGBO(78, 82, 130, 1.0),
           ),
@@ -80,22 +50,8 @@ class MoveOut extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                    child: Text('เลขที่ใบคำร้อง',
-                        style: TextStyle(color: Colors.white, fontSize: 12)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(220, 15, 10, 15),
-                    child: Text('12414/2553',
-                        style: TextStyle(color: Colors.white, fontSize: 12)),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.fromLTRB(30, 25, 10, 5),
-                    child: Text('ย้ายออก',
+                    padding: EdgeInsets.fromLTRB(30, 35, 10, 5),
+                    child: Text(moveOutInfo.description,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 26,
@@ -104,16 +60,16 @@ class MoveOut extends StatelessWidget {
                   Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.fromLTRB(40, 25, 10, 5),
-                        child: Text('ด.ญ. ศิณินท์ ชัยเดชอนันต์กุล',
+                        padding: EdgeInsets.fromLTRB(10, 35, 10, 5),
+                        child: Text('${moveOutInfo.titleDesc}${moveOutInfo.firstName} ${moveOutInfo.middleName} ${moveOutInfo.lastName}',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold)),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(5, 5, 10, 5),
-                        child: Text('ท้องถิ่นเขตบางคอแหลม',
+                        padding: EdgeInsets.fromLTRB(30, 5, 10, 5),
+                        child: Text(moveOutInfo.rcodeDesc,
                             style:
                             TextStyle(color: Colors.white, fontSize: 12)),
                       ),
@@ -126,9 +82,9 @@ class MoveOut extends StatelessWidget {
                   Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.only(left: 26, top: 40),
+                        padding: EdgeInsets.only(left: 36, top: 40),
                         child: Text(
-                          '9210315002',
+                          moveOutInfo.documentNo,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -136,7 +92,7 @@ class MoveOut extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(30, 10, 10, 10),
+                        padding: EdgeInsets.fromLTRB(40, 10, 10, 10),
                         child: Text(
                           'เลขที่เอกสาร',
                           style: TextStyle(
@@ -152,7 +108,7 @@ class MoveOut extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 20, top: 40),
                         child: Text(
-                          '1031',
+                          moveOutInfo.rcodeCode,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -176,7 +132,7 @@ class MoveOut extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 20, top: 40),
                         child: Text(
-                          '0',
+                          moveOutInfo.terminateDate,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -252,9 +208,9 @@ class MoveOut extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(45, 20, 4, 4),
+                          padding: EdgeInsets.fromLTRB(35, 20, 4, 4),
                           child: Text(
-                            '10120860414',
+                            moveOutInfo.houseID,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -272,9 +228,9 @@ class MoveOut extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(20, 20, 4, 4),
+                          padding: EdgeInsets.fromLTRB(9, 20, 4, 4),
                           child: Text(
-                            'นางสมพร ใจดี',
+                            moveOutInfo.houseOwner,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -292,9 +248,9 @@ class MoveOut extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
+                          padding: EdgeInsets.fromLTRB(45, 20, 4, 4),
                           child: Text(
-                            '',
+                            moveDate,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -314,7 +270,7 @@ class MoveOut extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
                           child: Text(
-                            '842/62',
+                            moveOutInfo.houseNo,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -332,9 +288,9 @@ class MoveOut extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(65, 20, 4, 4),
+                          padding: EdgeInsets.fromLTRB(70, 20, 4, 4),
                           child: Text(
-                            '00',
+                            moveOutInfo.villageNo,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -354,7 +310,7 @@ class MoveOut extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(65, 20, 4, 4),
                           child: Text(
-                            '-',
+                            moveOutInfo.alleyDesc,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -374,7 +330,7 @@ class MoveOut extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(70, 20, 4, 4),
                           child: Text(
-                            '-',
+                            moveOutInfo.alleyWayDesc,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -394,7 +350,7 @@ class MoveOut extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(70, 20, 4, 4),
                           child: Text(
-                            '-',
+                            moveOutInfo.roadDesc,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -414,7 +370,7 @@ class MoveOut extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(62, 20, 4, 4),
                           child: Text(
-                            'บางโคล่',
+                            moveOutInfo.subdistrictDesc,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -434,7 +390,7 @@ class MoveOut extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(58, 20, 4, 4),
                           child: Text(
-                            'บางคอแหลม',
+                            moveOutInfo.districtDesc,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -454,7 +410,7 @@ class MoveOut extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(58, 20, 4, 4),
                           child: Text(
-                            'กรุงเทพมหานคร',
+                            moveOutInfo.provinceDesc,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),

@@ -4,8 +4,6 @@ import 'package:thportal_new/screens/inmatesDatabaseScreen.dart';
 import 'package:thportal_new/screens/militaryEnlistmentScreen.dart';
 import 'package:thportal_new/screens/offenderHistoryScreen.dart';
 import 'package:thportal_new/screens/probationInformationScreen.dart';
-import 'package:thportal_new/screens/publicDrivingLicenseScreen.dart';
-import 'package:thportal_new/screens/publicMotorcycleScreen.dart';
 
 import 'p4LicenseScreen.dart';
 

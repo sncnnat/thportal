@@ -50,7 +50,7 @@ class BirthinfoCard extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.fromLTRB(30, 10, 4, 4),
                               child: Text(
-                                '11-08-2543',
+                                '11/08/2543',
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.white,
@@ -97,7 +97,7 @@ class BirthinfoCard extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.fromLTRB(20, 10, 4, 4),
                               child: Text(
-                                '15-08-2543',
+                                '15/08/2543',
                                 style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.white,
@@ -188,7 +188,7 @@ class BirthinfoCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(10, 10, 4, 4),
                         child: Text(
-                          '0',
+                          '-',
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -208,7 +208,7 @@ class BirthinfoCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(102, 10, 4, 4),
                         child: Text(
-                          '0',
+                          '-',
                           style: TextStyle(fontSize: 13),
                         ),
                       ),

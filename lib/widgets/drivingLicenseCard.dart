@@ -1,71 +1,42 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
+import 'package:thportal_new/models/drivingLicenseInfo.dart';
+import 'dropDownDrivingLicense.dart';
 
-class NumberDrivingLicense extends StatelessWidget {
+class DrivingLicenseCard extends StatefulWidget {
+  //const DrivingLicenseCard();
+
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: DropDownDemo(),
-    );
-  }
+  _DrivingLicenseCardState createState() => _DrivingLicenseCardState();
 }
 
-class DropDownDemo extends StatefulWidget {
-  @override
-  _DropDownDemoState createState() => _DropDownDemoState();
-}
-
-class _DropDownDemoState extends State<DropDownDemo> {
-  var _chosenValue;
+class _DrivingLicenseCardState extends State<DrivingLicenseCard> {
+  var _currentLicense = "61008956";
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: ShapeDecoration(
-          shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-      )),
-      padding: const EdgeInsets.all(10.0),
-      child: DropdownButton<String>(
-        value: _chosenValue,
-        //elevation: 5,
-        style: TextStyle(color: Colors.black),
-
-        items: <String>['63001164', '2896/2543']
-            .map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-        hint: Text(
-          "เลขที่ใบอณุญาต",
-          style: TextStyle(
-            color: Color.fromRGBO(0, 0, 0, 0.5),
-            fontSize: 12,
-          ),
-        ),
-        onChanged: (value) async {
-          setState(() {
-            _chosenValue = value;
-          });
-        },
-      ),
-    );
-  }
-}
-
-class DrivingLicenseCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+    final licenseInfo = licenseList
+        .firstWhere((license) => license.pltNo.contains(_currentLicense));
+    final issDate =
+        DateFormat("dd/MM/yyyy").format(DateTime.parse(licenseInfo.issDate));
     return Column(
       children: [
-        NumberDrivingLicense(),
+        DropDown(
+            currentValue: _currentLicense,
+            items: ["61008956", "60013042"],
+            onChangeHandler: (value) => {
+                  setState(() {
+                    _currentLicense = value as String;
+                  })
+                }),
         Container(
           width: 500,
-          height: 320,
+          height: 290,
           decoration: BoxDecoration(
             color: Color.fromRGBO(78, 82, 130, 1.0),
           ),
@@ -74,21 +45,7 @@ class DrivingLicenseCard extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(20, 5, 10, 5),
-                    child: Text('เลขที่เอกสาร',
-                        style: TextStyle(color: Colors.white, fontSize: 12)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(220, 15, 10, 15),
-                    child: Text('63001164',
-                        style: TextStyle(color: Colors.white, fontSize: 12)),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.fromLTRB(60, 25, 10, 5),
+                    padding: EdgeInsets.fromLTRB(60, 35, 10, 5),
                     child: Icon(
                       FontAwesomeIcons.idCard,
                       color: Colors.white,
@@ -98,16 +55,17 @@ class DrivingLicenseCard extends StatelessWidget {
                   Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.fromLTRB(52, 25, 10, 5),
-                        child: Text('นางสาวศิณินท์ ชัยเดชอนันต์กุล',
+                        padding: EdgeInsets.fromLTRB(30, 35, 10, 5),
+                        child: Text(
+                            '${licenseInfo.titleDesc}${licenseInfo.fName} ${licenseInfo.lName}',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold)),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(18, 5, 10, 5),
-                        child: Text('รถยนต์ส่วนบุคคลชั่วคราว',
+                        padding: EdgeInsets.fromLTRB(40, 5, 10, 5),
+                        child: Text('${licenseInfo.pltDesc}',
                             style:
                                 TextStyle(color: Colors.white, fontSize: 12)),
                       ),
@@ -126,16 +84,15 @@ class DrivingLicenseCard extends StatelessWidget {
                           color: Colors.white,
                           size: 25,
                         ),
-
                       ),
                       Padding(
                         padding: EdgeInsets.fromLTRB(50, 20, 10, 10),
                         child: Text(
-                          '10/09/2020',
+                          issDate,
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              ),
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ],
@@ -153,7 +110,7 @@ class DrivingLicenseCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(62, 20, 10, 10),
                         child: Text(
-                          '2',
+                          licenseInfo.sex,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -174,12 +131,12 @@ class DrivingLicenseCard extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.fromLTRB(75, 20, 10, 10),
-                        child:  Text(
-                          'ไทย',
+                        child: Text(
+                          licenseInfo.natDesc,
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              ),
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ],
@@ -199,7 +156,7 @@ class DrivingLicenseCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(40, 15, 4, 4),
                       child: Text(
-                        '-',
+                        licenseInfo.message,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 12,
@@ -222,7 +179,7 @@ class DrivingLicenseCard extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(40, 15, 4, 4),
                       child: Text(
-                        '-',
+                        licenseInfo.conditionDesc,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 12,
@@ -289,7 +246,7 @@ class DrivingLicenseCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(45, 20, 4, 4),
                           child: Text(
-                            '842/62',
+                            licenseInfo.addrNo,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -309,7 +266,7 @@ class DrivingLicenseCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(45, 20, 4, 4),
                           child: Text(
-                            '-',
+                            licenseInfo.villageName,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -329,7 +286,7 @@ class DrivingLicenseCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(47, 20, 4, 4),
                           child: Text(
-                            '-',
+                            licenseInfo.bldName,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -349,7 +306,7 @@ class DrivingLicenseCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(70, 20, 4, 4),
                           child: Text(
-                            '0',
+                            licenseInfo.villageNo,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -369,7 +326,7 @@ class DrivingLicenseCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(73, 20, 4, 4),
                           child: Text(
-                            '-',
+                            licenseInfo.soi,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -389,7 +346,7 @@ class DrivingLicenseCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(72, 20, 4, 4),
                           child: Text(
-                            '-',
+                            licenseInfo.street,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
@@ -414,7 +371,7 @@ class DrivingLicenseCard extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
                             child: Text(
-                              'แขวงบางโคล่ เขตบางคอแหลม จังหวัดกรุงเทพมหานคร',
+                              licenseInfo.locFullDesc,
                               style: TextStyle(fontSize: 13),
                             ),
                           ),
@@ -433,9 +390,9 @@ class DrivingLicenseCard extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(70, 20, 4, 4),
+                          padding: EdgeInsets.fromLTRB(30, 20, 4, 4),
                           child: Text(
-                            '-',
+                            licenseInfo.zipCode,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),

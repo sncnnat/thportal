@@ -266,7 +266,7 @@ class IdentityCard extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.fromLTRB(125, 10, 4, 4),
+                          padding: EdgeInsets.fromLTRB(128, 10, 4, 4),
                           child: Text(
                             '${identityInfo.alleyWayDesc}',
                             style: TextStyle(fontSize: 13),

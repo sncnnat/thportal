@@ -22,7 +22,7 @@ class DiplomaScreen extends StatelessWidget {
         ),
 
       body: Padding(
-        padding: const EdgeInsets.only(top: 27,left: 20,right: 20),
+        padding: const EdgeInsets.only(top: 27,left: 30,right: 30),
         child: Container(
           child: SingleChildScrollView(
             child: DiplomaCard(

@@ -25,7 +25,7 @@ class PassTestDataScreen extends StatelessWidget {
         padding: const EdgeInsets.only(top: 27,),
         child: Container(
           child: SingleChildScrollView(
-            child: PassTestDataCard(
+            child: PassTestCard(
 
             ),
           ),

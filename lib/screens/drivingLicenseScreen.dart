@@ -15,7 +15,7 @@ class DrivingLicenseScreen extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('ข้อมูลใบอณุญาตขับรถ',
+        title: Text('ข้อมูลใบอนุญาตขับรถ',
             style: TextStyle(fontSize: 16.0, color: Colors.white)),
       ),
       body: Padding(

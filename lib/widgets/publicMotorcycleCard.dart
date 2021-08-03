@@ -7,7 +7,7 @@ class PublicMotorcycleCard extends StatelessWidget {
       children: [
         Container(
           width: 500,
-          height: 80,
+          height: 70,
           decoration: BoxDecoration(
               color: Color.fromRGBO(78, 82, 130, 1.0),
               borderRadius: BorderRadius.only(

@@ -2,67 +2,36 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:thportal_new/models/carOwnerInfo.dart';
+import 'package:thportal_new/widgets/dropDownCard.dart';
 
-class NumberPropertyOwner extends StatelessWidget {
+
+class PropertyOwnerCard extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: DropDownDemo(),
-    );
-  }
+  _PropertyOwnerCardState createState() => _PropertyOwnerCardState();
 }
 
-class DropDownDemo extends StatefulWidget {
-  @override
-  _DropDownDemoState createState() => _DropDownDemoState();
-}
-
-class _DropDownDemoState extends State<DropDownDemo> {
-  var _chosenValue;
+class _PropertyOwnerCardState extends State<PropertyOwnerCard> {
+  var _currentPetition = "ฆฆ8356";
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: ShapeDecoration(
-          shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-      )),
-      padding: const EdgeInsets.all(10.0),
-      child: DropdownButton<String>(
-        value: _chosenValue,
-        //elevation: 5,
-        style: TextStyle(color: Colors.black),
-
-        items: <String>['12414/2553', '2896/2543']
-            .map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(value),
-          );
-        }).toList(),
-        hint: Text(
-          "เลขที่เอกสารสิทธิ",
-          style: TextStyle(
-            color: Color.fromRGBO(0, 0, 0, 0.5),
-            fontSize: 12,
-          ),
-        ),
-        onChanged: (value) async {
-          setState(() {
-            _chosenValue = value;
-          });
-        },
-      ),
-    );
-  }
-}
-
-class PropertyOwnerCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+    final carOwnerInfo = carOwnerList
+        .firstWhere((license) => license.vehicleRegistrationNumber.contains(_currentPetition));
     return Column(
       children: [
-        NumberPropertyOwner(),
+        DropDown(
+            currentValue: _currentPetition,
+            items: [
+              "ฆฆ8356",
+              "ฒญ1029",
+              "8กฬ8356",
+            ],
+            onChangeHandler: (value) => {
+              setState(() {
+                _currentPetition = value as String;
+              })
+            }),
         Container(
           width: 500,
           height: 200,
@@ -76,7 +45,7 @@ class PropertyOwnerCard extends StatelessWidget {
                 children: [
                   Container(
                     padding: EdgeInsets.fromLTRB(40, 35, 10, 5),
-                    child: Text('TOYOTA',
+                    child: Text(carOwnerInfo.engineBrand,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 26,
@@ -86,7 +55,7 @@ class PropertyOwnerCard extends StatelessWidget {
                     children: [
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 25, 10, 5),
-                        child: Text('8กฬ8356',
+                        child: Text(carOwnerInfo.vehicleRegistrationNumber,
                             textAlign: TextAlign.start,
                             style: TextStyle(
                                 color: Colors.white,
@@ -95,7 +64,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.fromLTRB(20, 5, 10, 5),
-                        child: Text('รถยนต์นั่งส่วนบุคคลไม่เกิน 7 คน',
+                        child: Text(carOwnerInfo.carType,
                             style:
                                 TextStyle(color: Colors.white, fontSize: 12)),
                       ),
@@ -110,7 +79,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 22, top: 40),
                         child: Text(
-                          'A',
+                          carOwnerInfo.carStatus,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -134,7 +103,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 30, top: 40),
                         child: Text(
-                          '1798.00',
+                          carOwnerInfo.cc,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -158,7 +127,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 30, top: 40),
                         child: Text(
-                          '4',
+                          carOwnerInfo.numberCylinders,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -182,7 +151,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(left: 30, top: 40),
                         child: Text(
-                          '1450',
+                          carOwnerInfo.carWeight,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 12,
@@ -214,7 +183,7 @@ class PropertyOwnerCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(15.0),
                 width: 100,
-                height: 90,
+                height: 100,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
@@ -233,9 +202,11 @@ class PropertyOwnerCard extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Icon(FontAwesomeIcons.car),
                     ),
-                    Text('C-HR',
+                    Expanded(child:
+                    Text(carOwnerInfo.design,
                         style: TextStyle(
                             fontSize: 10, color: Color.fromRGBO(0, 0, 0, 1.0)))
+                    ),
                   ],
                 ),
               ),
@@ -261,7 +232,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 15),
                       child: Icon(FontAwesomeIcons.gasPump),
                     ),
-                    Text('เบนซิน-ไฟฟ้า',
+                    Text(carOwnerInfo.fuel,
                         style: TextStyle(
                             fontSize: 10, color: Color.fromRGBO(0, 0, 0, 1.0)))
                   ],
@@ -289,7 +260,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 15),
                       child: Icon(FontAwesomeIcons.weight),
                     ),
-                    Text('1450',
+                    Text(carOwnerInfo.carWeight,
                         style: TextStyle(
                             fontSize: 10, color: Color.fromRGBO(0, 0, 0, 1.0)))
                   ],
@@ -350,9 +321,9 @@ class PropertyOwnerCard extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(30, 20, 4, 4),
+                        padding: EdgeInsets.fromLTRB(15, 20, 4, 4),
                         child: Text(
-                          'นั่งสองตอนแวน',
+                          carOwnerInfo.characteristic,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -372,7 +343,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(93, 20, 4, 4),
                         child: Text(
-                          '-',
+                          carOwnerInfo.color,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -392,7 +363,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(52, 20, 4, 4),
                         child: Text(
-                          'MR2KZ3BX903006705',
+                          carOwnerInfo.carNumber,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -412,7 +383,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(28, 20, 4, 4),
                         child: Text(
-                          '2ZRX652344',
+                          carOwnerInfo.engineNumber,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -477,7 +448,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(35, 20, 4, 4),
                         child: Text(
-                          'นางสาวบุษยา บุญมี',
+                          carOwnerInfo.holder,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -497,7 +468,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(20, 20, 4, 4),
                         child: Text(
-                          '22/07/2019',
+                          carOwnerInfo.registrationDate,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -517,7 +488,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
                         child: Text(
-                          '22/07/2021',
+                          carOwnerInfo.taxExpirationDate,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -541,7 +512,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
                         child: Text(
-                          '0105536113550',
+                          carOwnerInfo.CitizenIDlegalEntityOwnerShip,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -565,7 +536,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
                         child: Text(
-                          '3210400151564',
+                          carOwnerInfo.CitizenIDlegalEntityHolder,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -585,7 +556,7 @@ class PropertyOwnerCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
                         child: Text(
-                          '-',
+                          carOwnerInfo.seizureStatus,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -603,9 +574,9 @@ class PropertyOwnerCard extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(75, 20, 4, 4),
+                        padding: EdgeInsets.fromLTRB(45, 20, 4, 4),
                         child: Text(
-                          '00100',
+                          carOwnerInfo.province,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -624,13 +595,12 @@ class PropertyOwnerCard extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.fromLTRB(7, 20, 4, 4),
-                        child: Expanded(
                           child: Text(
-                            'บริษัทโตโยต้าลีสซิ่ง(ประเทศไทย) จำกัด',
+                            carOwnerInfo.ownerShip,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),
-                      ),
+
                     ],
                   ),
                   Row(
@@ -652,7 +622,7 @@ class PropertyOwnerCard extends StatelessWidget {
                         child:Container(
                         padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
                         child: Text(
-                          '990 ชั้น 18-19 ถ.พระราม4 แขวงสีลม เขตบางรัก จังหวัดกรุงเทพมหานคร 10500',
+                          carOwnerInfo.ownerShipAddress,
                           style: TextStyle(fontSize: 13),
                         ),
                       ),
@@ -678,7 +648,7 @@ class PropertyOwnerCard extends StatelessWidget {
                         child:Container(
                           padding: EdgeInsets.fromLTRB(40, 20, 4, 4),
                           child: Text(
-                            '6/242 ซ.พระรามที่ 3 ซ.28/1 ถ.พระราม3 แขวงบางโพงพาง เขตยานนาวา จังหวัดกรุงเทพมหานคร 10120',
+                            carOwnerInfo.holderAddress,
                             style: TextStyle(fontSize: 13),
                           ),
                         ),

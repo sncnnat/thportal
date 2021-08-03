@@ -473,7 +473,7 @@ class BorderPassCard extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(57, 10, 4, 4),
+                        padding: EdgeInsets.fromLTRB(59, 10, 4, 4),
                         child: Text(
                           '${borderPassInfo.houseAlleyWayDesc}',
                           style: TextStyle(fontSize: 13),

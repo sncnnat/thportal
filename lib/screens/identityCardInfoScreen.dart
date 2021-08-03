@@ -19,15 +19,15 @@ class IdentityCardInfoScreen extends StatelessWidget {
         religion: 'พุทธ',
         houseNo: '665/50',
         villageNo: '2',
-        alleyWayDesc: '',
-        alleyDesc: '',
-        roadDesc: '',
+        alleyWayDesc: '-',
+        alleyDesc: '-',
+        roadDesc: '-',
         subDistrictDesc: 'บ้านคลองสวน',
         districtDesc: 'พระสมุทรเจดีย์',
         provinceDesc: 'สมุทรปราการ',
-        cancelCause: '',
-        foreignCountry: '',
-        foreignCountryCity: '');
+        cancelCause: '-',
+        foreignCountry: '-',
+        foreignCountryCity: '-');
 
     return Scaffold(
       appBar: AppBar(

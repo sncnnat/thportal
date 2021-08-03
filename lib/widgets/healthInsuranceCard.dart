@@ -154,6 +154,13 @@ class HealthInsuranceCard extends StatelessWidget {
                           color: Color.fromRGBO(0, 0, 0, 0.6), fontSize: 12),
                     ),
                   ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(24, 25, 4, 4),
+                    child: Text(
+                      '-',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
                 ],
               ),
               Row(
@@ -164,6 +171,13 @@ class HealthInsuranceCard extends StatelessWidget {
                       'ชื่อสิทธิหลักในการรับบริการ',
                       style: TextStyle(
                           color: Color.fromRGBO(0, 0, 0, 0.6), fontSize: 12),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(30, 25, 4, 4),
+                    child: Text(
+                      '-',
+                      style: TextStyle(fontSize: 12),
                     ),
                   ),
                 ],
