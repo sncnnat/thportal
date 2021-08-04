@@ -97,7 +97,7 @@ class ChangeNameCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(10, 25, 4, 4),
                           child: Text(
-                            'ชัยเดชอนันต์กุล',
+                            'ยิ้มเเย้ม',
                             style: TextStyle(fontSize: 12),
                           ),
                         ),
@@ -116,7 +116,7 @@ class ChangeNameCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.fromLTRB(10, 25, 4, 4),
                           child: Text(
-                            'ภัทระปภาพงษ์',
+                            'ใจดี',
                             style: TextStyle(fontSize: 12),
                           ),
                         ),

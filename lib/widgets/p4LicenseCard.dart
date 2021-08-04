@@ -81,7 +81,7 @@ class p4LicenseCard extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(68, 25, 4, 4),
                         child: Text(
-                          'นางสาวปัญนกัญ ภัทระปภาพงษ์',
+                          'นางสาวเเอปเปิ้ล ใจดี',
                           style: TextStyle(fontSize: 12),
                         ),
                       ),

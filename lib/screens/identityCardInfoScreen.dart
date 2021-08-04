@@ -9,7 +9,7 @@ class IdentityCardInfoScreen extends StatelessWidget {
         titleTH: 'นาย',
         firstNameTH: 'วิทวัส',
         middleNameTH: '',
-        lastNameTH: 'กันยารอง',
+        lastNameTH: 'ใจดี',
         titleEN: 'Mr.',
         firstNameEN: 'Wittavat',
         middleNameEN: '',

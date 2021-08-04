@@ -4,8 +4,8 @@ import 'package:thportal_new/widgets/borderPassCard.dart';
 
 class BorderPassScreen extends StatelessWidget {
   BorderPassInfo borderPassInfo = BorderPassInfo(
-    thaiName: 'นายวิทวัส กันยารอง',
-  englishName: 'MR.WITTAVAT KANYARONG',
+    thaiName: 'นายวิทวัส ใจดี',
+  englishName: 'MR.WITTAVAT CHAIDEE',
       dateOfBirth: '25310427',
       genderText: 'ชาย',
       height: '0',

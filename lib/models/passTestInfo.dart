@@ -38,7 +38,7 @@ List<PassTestInfo> passTestList = [
       examAppEnddate: '-',
       examAppFname: 'นายวิทวัส',
       examAppID: '1639800072121',
-      examAppLname: 'กันยารอง',
+      examAppLname: 'ใจดี',
       examCerID: '53354131',
       examCerYear: '2553',
       examDegree: 'ปริญญาตรี',

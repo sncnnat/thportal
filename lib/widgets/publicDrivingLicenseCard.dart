@@ -75,7 +75,7 @@ class PublicDrivingLicenseCard extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.fromLTRB(45, 25, 4, 4),
                     child: Text(
-                      'นางสาวปัญนกัญ ภัทระปภาพงษ์',
+                      'นางสาวปัญนกัญ ใจดี',
                       style: TextStyle(fontSize: 12),
                     ),
                   ),

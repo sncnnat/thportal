@@ -5,7 +5,7 @@ import 'package:thportal_new/widgets/passportCard.dart';
 class PassportScreen extends StatelessWidget {
   PassportInfo passportInfo = PassportInfo(
     firstNameTH: 'วิทวัส',
-    lastNameTH: 'กันยารอง',
+    lastNameTH: 'ใจดี',
     firstNameEN: 'WITTAVAT',
     lastNameEN: 'KANYARONG',
     passportNo: 'AB3483157',

@@ -43,14 +43,14 @@ class VeteranCard extends StatelessWidget {
                     children: [
                       Container(
                         padding: EdgeInsets.fromLTRB(50, 15, 10, 5),
-                        child: Text('นายวิทวัส กันยารอง',
+                        child: Text('นายวิทวัส ใจดี',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold)),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                        padding: EdgeInsets.fromLTRB(50, 5, 10, 5),
                         child: Text('11xxxxxxxx321',
                             style:
                                 TextStyle(color: Colors.white, fontSize: 12)),
