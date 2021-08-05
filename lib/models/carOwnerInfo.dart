@@ -58,10 +58,10 @@ List<CarOwnerInfo> carOwnerList = [
       CitizenIDlegalEntityHolder: 'xxxxxxxxxx564',
       seizureStatus: '-',
       province: '00100',
-      ownerShip: 'นางสาวบุษยา บุญมี',
+      ownerShip: 'นางสาวบุษยา ใจดี',
       ownerShipAddress:
           '6/242 ซ.พระรามที่ 3 ถ.พระราม 3 แขวงบางโพงพาง เขตยานนาวา จังหวัดกรุงเทพมหานคร 22000',
-      holder: 'นางสาวบุษยา บุญมี',
+      holder: 'นางสาวบุษยา ใจดี',
       holderAddress:
           '6/242 ซ.พระรามที่ 3 ซ.28/1 ถ.พระราม 3 แขวงบางโพงพาง เขตยานนาวา จังหวัดกรุงเทพมหานคร 10120',
       vehicleRegistrationNumber: 'ฆฆ8356',
@@ -84,10 +84,10 @@ List<CarOwnerInfo> carOwnerList = [
       CitizenIDlegalEntityHolder: 'xxxxxxxxxx564',
       seizureStatus: '-',
       province: '00100',
-      ownerShip: 'นางสาวบุษยา บุญมี',
+      ownerShip: 'นางสาวบุษยา ใจดี',
       ownerShipAddress:
       '6/242 ซ.พระรามที่ 3 ถ.พระราม 3 แขวงบางโพงพาง เขตยานนาวา จังหวัดกรุงเทพมหานคร 22000',
-      holder: 'นางสาวบุษยา บุญมี',
+      holder: 'นางสาวบุษยา ใจดี',
       holderAddress:
       '6/242 ซ.พระรามที่ 3 ซ.28/1 ถ.พระราม 3 แขวงบางโพงพาง เขตยานนาวา จังหวัดกรุงเทพมหานคร 10120',
       vehicleRegistrationNumber: 'ฒญ1029',
@@ -113,7 +113,7 @@ List<CarOwnerInfo> carOwnerList = [
       ownerShip: 'บริษัทโตโยต้าลีสซิ่ง (ประเทศไทย) จำกัด',
       ownerShipAddress:
       '990 ชั้น 18-19 ถ.พระราม 4 แขวงสีลม เขตบางรัก จังหวัดกรุงเทพมหานคร 10500',
-      holder: 'นางสาวบุษยา บุญมี',
+      holder: 'นางสาวบุษยา ใจดี',
       holderAddress:
       '6/242 ซ.พระรามที่ 3 ซ.28/1 ถ.พระราม 3 แขวงบางโพงพาง เขตยานนาวา จังหวัดกรุงเทพมหานคร 10120',
       vehicleRegistrationNumber: '8กฬ8356',

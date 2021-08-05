@@ -17,7 +17,7 @@ class IdentityCardInfoScreen extends StatelessWidget {
         sex: 'ชาย',
         blood: 'O',
         religion: 'พุทธ',
-        houseNo: '665/50',
+        houseNo: '5/50',
         villageNo: '2',
         alleyWayDesc: '-',
         alleyDesc: '-',

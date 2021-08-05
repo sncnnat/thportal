@@ -10,7 +10,7 @@ class BorderPassScreen extends StatelessWidget {
       genderText: 'ชาย',
       height: '0',
       specialPeculiarities: '-',
-      houseNo: '45/33',
+      houseNo: '5/55',
       houseVillageNo: '0',
       houseAlleyWayDesc: '-',
       houseAlleyDesc: '-',
